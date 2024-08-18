@@ -10,6 +10,10 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^4.14.2"
+    "astro": "^4.14.2",
+    "astro-particles": "^2.10.0",
+		"dompurify": "^3.1.6",
+		"tsparticles": "2.12"
+
   }
 }

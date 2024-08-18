@@ -1,0 +1,53 @@
+---
+import HeaderLink from "./HeaderLink.astro";
+import { SITE_TITLE, SITE_DESCRIPTION } from "../config";
+---
+
+<header>
+  <div class="header-section">
+    <div class="header-frame">
+      <h1>{SITE_TITLE}</h1>
+      <h2>{SITE_DESCRIPTION}</h2>
+    </div>
+    <div class="img-frame">
+      <img src="/face.jpg" alt="Abhay's face" />
+    </div>
+  </div>
+</header>
+<nav>
+  <HeaderLink href="/">home</HeaderLink>
+  <HeaderLink href="/posts">blogs</HeaderLink>
+  <!-- <HeaderLink href="/projects" target="_blank">
+    projects
+  </HeaderLink> -->
+  <HeaderLink href="https://github.com/AbhayDave" target="_blank">
+    github
+  </HeaderLink>
+  <HeaderLink href="https://x.com/AbhayDa94608859" target="_blank">
+    X
+  </HeaderLink>
+  <HeaderLink href="https://www.linkedin.com/in/abhay-dave/" target="_blank">
+    linkedin
+  </HeaderLink>
+</nav>
+<style>
+  h2 {
+    margin: 0.5em 0;
+  }
+
+  .img-frame {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    margin: 10px 0;
+    border-radius: 50%;
+    overflow: hidden;
+  }
+
+  .img-frame img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+</style>
