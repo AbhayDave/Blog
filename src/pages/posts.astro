@@ -7,13 +7,14 @@ import ColorScript from "../components/ColorScript.astro";
 
 import { SITE_TITLE, SITE_DESCRIPTION } from "../config";
 import Particles from "../components/Particles.astro";
-// import SearchBar from "../components/SearchBar.astro";
+import { getCollection } from "astro:content";
 
-// Use Astro.glob() to fetch all posts, and then sort them by date.
-const posts = (await Astro.glob("../posts/*.md")).sort(
+let posts = await getCollection("posts");
+
+posts = posts.sort(
   (a, b) =>
-    new Date(b.frontmatter.updated || b.frontmatter.added).valueOf() -
-    new Date(a.frontmatter.updated || a.frontmatter.added).valueOf()
+    new Date(b.data.updated || b.data.added).valueOf() -
+    new Date(a.data.updated || a.data.added).valueOf()
 );
 ---
 
@@ -26,14 +27,13 @@ const posts = (await Astro.glob("../posts/*.md")).sort(
     </div>
     <Header />
     <main>
-		<!-- <SearchBar /> -->
+      <!-- <SearchBar /> -->
       <content>
         <ul class="posts-list">
           {
             posts.map(
               ({
-                url,
-                frontmatter: { description, slug, title, tags, added: date },
+                data: { description, slug, title, tags, added: date },
               }) => <Post {description} {date} {slug} {title} {tags} />
             )
           }

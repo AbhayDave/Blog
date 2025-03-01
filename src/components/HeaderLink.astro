@@ -1,9 +1,5 @@
 ---
 const { href, class: className, ...props } = Astro.props;
-console.log("href:", href);
-console.log("url pathname:", Astro.url.pathname);
-console.log(href === Astro.url.pathname);
-console.log();
 let isActive =
   href.replace(/\/$/, "") === Astro.url.pathname.replace(/\/$/, "");
 ---

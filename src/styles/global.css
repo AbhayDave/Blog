@@ -27,11 +27,12 @@ html,
 body {
   margin: auto;
   padding: 20px;
-  max-width: 80ch;
+  max-width: 90ch;
   background-color: var(--white);
   word-wrap: break-word;
   overflow-wrap: break-word;
   color: var(--black);
+  font-size: 1.1rem;
 }
 html,
 body,

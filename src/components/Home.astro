@@ -1,11 +1,12 @@
 ---
+import { getCollection } from "astro:content";
 import HomePosts from "../components/HomePosts.astro";
 import Tags from "../components/Tags.astro";
 import { Content as About } from "../pages/about.md";
 import getTags from "../scripts/getTags";
 
-const posts = await Astro.glob("../posts/*.md");
-
+// const posts = await Astro.glob("../posts/*.md");
+const posts = await getCollection("posts");
 const tags = getTags(posts);
 ---
 
