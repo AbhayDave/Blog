@@ -16,11 +16,46 @@ posts = posts.sort(
     new Date(b.data.updated || b.data.added).valueOf() -
     new Date(a.data.updated || a.data.added).valueOf()
 );
+
+const postsByYear = posts.reduce((acc, post) => {
+  const year = new Date(post.data.added).getFullYear();
+  if (!acc[year]) {
+    acc[year] = [];
+  }
+  acc[year].push(post);
+  return acc;
+}, {});
 ---
 
 <!doctype html>
 <html lang="en-us">
   <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+  <style>
+    
+    h2[id] {
+      padding-top: 100px; 
+      margin-top: -80px;
+    }
+
+    hr {
+      width: 50%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    #year-container {
+      width: 60%;
+      margin: 5px auto;
+      display: grid;
+      place-items: center;
+      grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+      gap: 10px;
+      padding: 20px;
+      background-color: var(--black);
+      border-radius: 8px;
+      margin-bottom: 20px;
+    }
+  </style>
   <body>
     <div class="pc">
       <Particles />
@@ -28,17 +63,30 @@ posts = posts.sort(
     <Header />
     <main>
       <!-- <SearchBar /> -->
-      <content>
-        <ul class="posts-list">
-          {
-            posts.map(
-              ({
-                data: { description, slug, title, tags, added: date },
-              }) => <Post {description} {date} {slug} {title} {tags} />
-            )
-          }
-        </ul>
-      </content>
+      <hr />
+      <div id="year-container">
+        {
+          Object.entries(postsByYear).map(([year]) => (
+            <a href={`#${year}`}>{year}</a>
+          ))
+        }
+      </div>
+      <hr />
+
+      {
+        Object.entries(postsByYear).map(([year, yearPosts]) => (
+          <>
+            <h2 id={year}>{year}</h2>
+            <ul class="posts-list">
+              {yearPosts.map(
+                ({ data: { description, slug, title, tags, added: date } }) => (
+                  <Post {description} {date} {slug} {title} {tags} />
+                )
+              )}
+            </ul>
+          </>
+        ))
+      }
     </main>
     <Footer />
     <ColorScript />
