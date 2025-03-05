@@ -17,7 +17,7 @@ so here it goes...
 
 > "Don’t be afraid to do hard things! The scariest thing in life is looking back and realizing that nothing in our lives has changed in the last 5, 10, or 20 years."
 
-This quote popped up on my Instagram feed while scrolling reels, and after reading it, here I am with my not-so-great English, writing my first blog. 
+This quote popped up on my Instagram feed while scrolling reels, and after reading it, here I am with my not-so-great English, writing my first blog.
 
 I moved to a new city for an internship without knowing a single person who lived there. The first time I did something similar was when I went off to college. I chose a small private college where I didn’t know anyone. I wanted a fresh start with people who had no past judgments of me, and that’s exactly what I got.
 
